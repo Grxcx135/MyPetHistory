@@ -1,20 +1,18 @@
-/**
- * main.ts
- *
- * Bootstraps Vuetify and other plugins then mounts the App`
- */
+import "./styles/main.scss";
+import "./styles/component.scss";
+import "./styles/typo.scss";
 
-// Plugins
-import { registerPlugins } from '@/plugins'
+import { createApp } from "vue";
+import vuetify from "./plugins/vuetify";
+import router from "./router";
+import App from "./App.vue";
+import axios from "axios";
+import VueAxios from "vue-axios";
 
-// Components
-import App from './App.vue'
+const app = createApp(App);
 
-// Composables
-import { createApp } from 'vue'
+app.use(VueAxios, axios);
+app.use(router);
+app.use(vuetify);
 
-const app = createApp(App)
-
-registerPlugins(app)
-
-app.mount('#app')
+app.mount("#app");
