@@ -4,20 +4,12 @@ const routes = [
   {
     path: "/",
     component: () => import("@/components/AppBarComponent.vue"),
-    // children: [
-    //   {
-    //     path: '/merchants-detail-view',
-    //     component: () => import('@/views/MerchantsDetailView.vue')
-    //   },
-    //   {
-    //     path: '/my-merchants-view',
-    //     component: () => import('@/views/MyMerchantsView.vue')
-    //   },
-    //   {
-    //     path: '/setting-view',
-    //     component: () => import('@/views/SettingView.vue')
-    //   }
-    // ]
+    children: [
+      {
+        path: "/home",
+        component: () => import("@/pages/allAnimalType.vue"),
+      },
+    ],
   },
   // { path: "/", component: () => import("@/components/HelloWorld.vue") },
 ];

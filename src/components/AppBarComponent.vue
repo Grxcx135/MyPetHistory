@@ -1,57 +1,33 @@
 <template>
-  <v-container fluid class="pa-0">
+  <v-card>
     <v-layout>
-      <v-app-bar color="primary elevation-0">
-        <v-app-bar-nav-icon
-          variant="text"
-          @click.stop="drawer = !drawer"
-        ></v-app-bar-nav-icon>
+      <v-navigation-drawer expand-on-hover rail>
+        <v-list-item>
+          <template v-slot:append>
+            <v-btn icon="$home" variant="text"></v-btn>
+          </template>
+        </v-list-item>
 
-        <v-toolbar-title>My files</v-toolbar-title>
+        <v-divider></v-divider>
 
-        <template v-if="$vuetify.display.mdAndUp">
-          <v-btn icon="$chevronDown" variant="text"></v-btn>
-
-          <v-btn icon="$chevronDown" variant="text"></v-btn>
-        </template>
-
-        <v-btn icon="$chevronDown" variant="text"></v-btn>
-      </v-app-bar>
-
-      <v-navigation-drawer
-        v-model="drawer"
-        :location="$vuetify.display.mobile ? 'bottom' : undefined"
-        temporary
-      >
-        <v-list
-          :items="[
-            {
-              title: 'Foo',
-              value: 'foo',
-            },
-            {
-              title: 'Bar',
-              value: 'bar',
-            },
-            {
-              title: 'Fizz',
-              value: 'fizz',
-            },
-            {
-              title: 'Buzz',
-              value: 'buzz',
-            },
-          ]"
-        ></v-list>
+        <v-list density="compact" nav>
+          <v-list-item
+            prepend-icon="$home"
+            title="Home"
+            value="home"
+          ></v-list-item>
+          <v-list-item
+            prepend-icon="$home"
+            title="My Account"
+            value="account"
+          ></v-list-item>
+        </v-list>
       </v-navigation-drawer>
-      <v-container fluid class="pa-0">
-        <router-view />
-      </v-container>
+      <v-main style="height: 100vh"></v-main>
     </v-layout>
-  </v-container>
+  </v-card>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, watch } from "vue";
-const drawer = ref(false);
 </script>
