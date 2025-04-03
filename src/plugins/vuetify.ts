@@ -6,14 +6,18 @@ import { createVuetify } from "vuetify";
 import { aliases, mdi } from "vuetify/iconsets/mdi-svg";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
-import { mdiChevronDown, mdiCloseCircle } from "@mdi/js";
+import {
+  mdiChevronDown,
+  mdiWeatherPartlyCloudy,
+  mdiWeatherNightPartlyCloudy,
+  mdiHome,
+} from "@mdi/js";
 
 const myCustomLightTheme = {
   dark: false,
   colors: {
-    primary: "#4C6FFF",
-    primaryDarken: "#003660",
-    secondary: "#E4ECF7",
+    primary: "#e4211d",
+    secondary: "#fcc625",
     tertiary: "#FF92AE",
     success: "#66CB9F",
     warning: "#F7936F",
@@ -29,7 +33,9 @@ const vuetify = createVuetify({
     aliases: {
       ...aliases,
       chevronDown: mdiChevronDown,
-      closeCircle: mdiCloseCircle,
+      alive: mdiWeatherPartlyCloudy,
+      noneAlive: mdiWeatherNightPartlyCloudy,
+      home: mdiHome,
     },
     sets: {
       mdi,

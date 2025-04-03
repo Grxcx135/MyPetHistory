@@ -1,57 +1,59 @@
 <template>
-  <v-container fluid class="pa-0">
+  <v-card>
     <v-layout>
-      <v-app-bar color="primary elevation-0">
-        <v-app-bar-nav-icon
-          variant="text"
-          @click.stop="drawer = !drawer"
-        ></v-app-bar-nav-icon>
-
-        <v-toolbar-title>My files</v-toolbar-title>
-
-        <template v-if="$vuetify.display.mdAndUp">
-          <v-btn icon="$chevronDown" variant="text"></v-btn>
-
-          <v-btn icon="$chevronDown" variant="text"></v-btn>
-        </template>
-
-        <v-btn icon="$chevronDown" variant="text"></v-btn>
-      </v-app-bar>
-
       <v-navigation-drawer
         v-model="drawer"
-        :location="$vuetify.display.mobile ? 'bottom' : undefined"
-        temporary
+        :rail="rail"
+        permanent
+        @click="rail = !rail"
+        class="bg-primary"
       >
-        <v-list
-          :items="[
-            {
-              title: 'Foo',
-              value: 'foo',
-            },
-            {
-              title: 'Bar',
-              value: 'bar',
-            },
-            {
-              title: 'Fizz',
-              value: 'fizz',
-            },
-            {
-              title: 'Buzz',
-              value: 'buzz',
-            },
-          ]"
-        ></v-list>
+        <v-list density="compact" nav>
+          <v-list-item prepend-icon="$home">
+            <v-card class="pa-0 bg-primary">
+              <template v-slot:append>
+                <p>My Pet History</p>
+              </template>
+            </v-card>
+          </v-list-item>
+
+          <v-divider
+            :thickness="2"
+            color="white"
+            class="border-opacity-75 pb-3"
+          ></v-divider>
+
+          <v-list-item class="px-0" value="alive">
+            <v-card height="100%" class="d-flex flex-row">
+              <v-icon icon="$home"></v-icon>
+              <v-spacer></v-spacer>
+              <p>alive</p>
+            </v-card>
+          </v-list-item>
+          <v-list-item class="px-0" value="noneAlive">
+            <v-card class="d-flex flex-row set-text">
+              <v-icon icon="$home"></v-icon>
+              <v-spacer></v-spacer>
+              <p>none-alive</p>
+            </v-card>
+          </v-list-item>
+        </v-list>
       </v-navigation-drawer>
-      <v-container fluid class="pa-0">
+      <v-main style="height: 100vh">
         <router-view />
-      </v-container>
+      </v-main>
     </v-layout>
-  </v-container>
+  </v-card>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, watch } from "vue";
-const drawer = ref(false);
+const drawer = ref(true);
+const rail = ref(true);
 </script>
+
+<style scoped>
+.set-text {
+  white-space: nowrap;
+}
+</style>
