@@ -5,11 +5,11 @@
         v-model="drawer"
         :rail="rail"
         permanent
-        @click="rail = !rail"
         class="bg-primary"
+        @click="rail = false"
       >
         <v-list density="compact" nav>
-          <v-list-item prepend-icon="$home">
+          <v-list-item prepend-icon="$home" @click.stop="rail = !rail">
             <v-card class="pa-0 bg-primary">
               <template v-slot:append>
                 <p>My Pet History</p>
@@ -23,14 +23,14 @@
             class="border-opacity-75 pb-3"
           ></v-divider>
 
-          <v-list-item class="px-0" value="alive">
+          <v-list-item class="px-0" value="alive" to="/Alive">
             <v-card height="100%" class="d-flex flex-row">
               <v-icon icon="$home"></v-icon>
               <v-spacer></v-spacer>
               <p>alive</p>
             </v-card>
           </v-list-item>
-          <v-list-item class="px-0" value="noneAlive">
+          <v-list-item class="px-0" value="noneAlive" to="/none-alive">
             <v-card class="d-flex flex-row set-text">
               <v-icon icon="$home"></v-icon>
               <v-spacer></v-spacer>

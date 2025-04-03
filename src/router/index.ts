@@ -6,8 +6,12 @@ const routes = [
     component: () => import("@/components/AppBarComponent.vue"),
     children: [
       {
-        path: "/home",
-        component: () => import("@/pages/allAnimalType.vue"),
+        path: "/alive",
+        component: () => import("@/pages/AliveAnimal.vue"),
+      },
+      {
+        path: "/none-alive",
+        component: () => import("@/pages/NoneAliveAnimal.vue"),
       },
     ],
   },
