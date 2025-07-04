@@ -15,7 +15,7 @@ const routes = [
       },
     ],
   },
-  // { path: "/", component: () => import("@/components/HelloWorld.vue") },
+  { path: "/test", component: () => import("@/pages/TestPage.vue") },
 ];
 
 const router = createRouter({
